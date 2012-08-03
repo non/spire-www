@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Spire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="styles/googlecode.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">Spire</a>
+          <div class="nav-collapse">
+<!--            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul> -->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <h1>Spire</h1>
+
+<p>Spire is powerful math library for Scala. Going beyond the basic
+functionality provided by Scala and Java, Spire aims to provide powerful new
+number types, type classes for generic math and algebra, and other innovations
+to make working with numbers in Scala even better.</p>
+
+<h2>Key features</h2>
+
+<ol>
+ <li>New number types:</li>
+  <ul>
+   <li>Rational</li>
+   <li>Complex[A]</li>
+   <li>Real</li>
+   <li>and more...</li>
+  </ul>
+ </li>
+ <li>Specialized type classes like <tt>Ring</tt>, <tt>Integral</tt> and <tt>Numeric</tt></li>
+ <li>Expanded set of operators and functions for all number types</li>
+ <li>Compile-time checking/optimization for numeric constants</li>
+</ol>
+
+<h2>Getting Spire</h2>
+
+<p>Spire is available to you under an MIT license, and can be downloaded from
+the Sonatype OSS repo. To add Spire to an SBT project add the following lines
+to your <tt>build.sbt</tt> file:</p>
+
+      <pre><code class="scala">
+scalaVersion := "2.10.0-M6"
+
+resolvers += "sonatype" at "https://oss.sonatype.org/content/repositories/releases"
+
+libraryDependencies += "org.spire-math" %% "spire" % "0.3.0-M1"
+      </code></pre>
+
+<p><i>(Currently Spire is only available as a milestone against Scala-2.10.0-M6.)</i></p>
+
+<p>You can also visit the <a href="https://github.com/non/spire">project page</a>.
+
+<h2>Using Spire</h2>
+
+      <pre><code class="scala">
+import scala.{specialized => sp}
+import spire.math._
+import Implicits._
+
+// example of a generic distance function
+def distance[@sp A:Numeric](x:A, y:A) = Numeric[A].sqrt(x * x + y * y)
+      </code></pre>
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
+    <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
