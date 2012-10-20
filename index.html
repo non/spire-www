@@ -79,19 +79,16 @@ to make working with numbers in Scala even better.</p>
 
 <h2>Getting Spire</h2>
 
-<p>Spire is available to you under an MIT license, and can be downloaded from
-the Sonatype OSS repo. To add Spire to an SBT project add the following lines
-to your <tt>build.sbt</tt> file:</p>
+<p>Spire is available to you under an MIT license, and is kindly hosted by the
+Sonatype OSS repo. The current version of Spire is being developed against
+Scala 2.10. To add Spire to an SBT project add the following lines to your
+<tt>build.sbt</tt> file:</p>
 
       <pre><code class="scala">
-scalaVersion := "2.10.0-M6"
+scalaVersion := "2.10.0-RC1"
 
-resolvers += "sonatype" at "https://oss.sonatype.org/content/repositories/releases"
-
-libraryDependencies += "org.spire-math" %% "spire" % "0.3.0-M1"
+libraryDependencies += "org.spire-math" % "spire_2.10.0-RC1" % "0.3.0-M3"
       </code></pre>
-
-<p><i>(Currently Spire is only available as a milestone against Scala-2.10.0-M6.)</i></p>
 
 <p>You can also visit the <a href="https://github.com/non/spire">project page</a>.
 
@@ -100,10 +97,15 @@ libraryDependencies += "org.spire-math" %% "spire" % "0.3.0-M1"
       <pre><code class="scala">
 import scala.{specialized => sp}
 import spire.math._
-import Implicits._
+import spire.implicits._
 
-// example of a generic distance function
-def distance[@sp A:Numeric](x:A, y:A) = Numeric[A].sqrt(x * x + y * y)
+// example of Euclidean distance function
+def distance[@sp A: Numeric](x: A, y: A): A =
+  (x * x + y * y).sqrt
+
+// greatest common denominator
+def gcd[@sp A: Integral](x: A, y: A): A =
+  if (x % y == 0) y else gcd(y, x % y)
       </code></pre>
 
     </div> <!-- /container -->
